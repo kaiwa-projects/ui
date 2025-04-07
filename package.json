@@ -1,6 +1,6 @@
 {
-	"name": "ui",
-	"version": "0.0.1",
+	"name": "@kaiwa-projects/ui",
+	"version": "0.0.5",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run prepack",
@@ -72,5 +72,8 @@
 	},
 	"keywords": [
 		"svelte"
-	]
+	],
+	"dependencies": {
+		"@tailwindcss/postcss": "^4.1.3"
+	}
 }
