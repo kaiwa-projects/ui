@@ -1,28 +1,51 @@
 <script lang="ts">
+    import Icon from "@iconify/svelte";
+
     interface Props {
-        /** What background color to use */
+        icon?: string;
         color?: "primary" | "secondary";
-        /** How large should the button be? */
         size?: "small" | "medium" | "large";
-        /** Button contents */
         label: string;
-        /** The onclick event handler */
+        loading: boolean;
         onClick?: () => void;
     }
 
-    const { color = "primary", size = "medium", label, onClick }: Props = $props();
+    const {
+        icon = "",
+        size = "medium",
+        color = "primary",
+        label,
+        loading = false,
+        onClick
+    }: Props = $props();
 
     const bgColor = $derived(
         color === "primary"
-            ? "bg-blue-600 text-white hover:bg-blue-700"
-            : "border border-slate-600 text-slate-600 hover:bg-slate-200"
+            ? "bg-indigo-600 text-white hover:bg-indigo-500"
+            : "bg-white text-gray-900 hover:bg-gray-100 ring-1 ring-gray-300 ring-inset"
     );
 
     const buttonSize = $derived(
-        size === "small" ? "px-2 py-1 text-sm" : size === "medium" ? "px-4 py-2" : "px-8 py-4"
+        size === "small"
+            ? "rounded-sm px-2 py-1 text-xs"
+            : size === "medium"
+              ? "rounded-md bg-indigo-600 px-4 py-2 text-sm"
+              : "rounded-md bg-indigo-600 px-6 py-3 text-sm"
     );
+
+    const iconSize = $derived(size === "small" ? 12 : size === "medium" ? 14 : 16);
+    const iconColor = $derived(color === "primary" ? "text-white" : "text-gray-900");
 </script>
 
-<button type="button" class={`rounded-md ${buttonSize} ${bgColor}`} onclick={onClick}>
-    {label}
+<button
+    type="button"
+    class={`shadow-xs inline-flex items-center gap-x-2 overflow-hidden text-sm font-semibold ${buttonSize} ${bgColor}`}
+    onclick={onClick}
+>
+    {#if loading}
+        <Icon class={`${iconColor}`} icon="svg-spinners:180-ring-with-bg" height={iconSize} />
+    {/if}
+    <span class={size !== "small" ? "-mb-0.5" : ""}>
+        {label}
+    </span>
 </button>

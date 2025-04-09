@@ -9,6 +9,10 @@
         component: Button,
         tags: ["autodocs"],
         argTypes: {
+            loading: {
+                control: { type: "boolean" },
+                defaultValue: false
+            },
             color: {
                 control: { type: "select" },
                 options: ["primary", "secondary"],
