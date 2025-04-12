@@ -1,5 +1,11 @@
 <script module>
-    import { defineMeta } from "@storybook/addon-svelte-csf";
+    import {
+        defineMeta,
+        setTemplate,
+        type Args,
+        type StoryContext
+    } from "@storybook/addon-svelte-csf";
+
     import Button from "$lib/components/Button.svelte";
     import { fn } from "@storybook/test";
 
@@ -9,6 +15,9 @@
         component: Button,
         tags: ["autodocs"],
         argTypes: {
+            label: {
+                defaultValue: ""
+            },
             loading: {
                 control: { type: "boolean" },
                 defaultValue: false
@@ -16,23 +25,30 @@
             color: {
                 control: { type: "select" },
                 options: ["primary", "secondary"],
-                defaultValue: "primary"
+                defaultValue: "secondary"
             },
             size: {
                 control: { type: "select" },
-                options: ["small", "medium", "large"],
-                defaultValue: "medium"
+                options: ["sm", "md", "lg"],
+                defaultValue: "sm"
             }
         },
         args: {
-            onClick: fn()
+            onclick: fn()
         }
     });
 </script>
 
-<!-- More on writing stories with args: https://storybook.js.org/docs/writing-stories/args -->
-<Story name="Primary" args={{ label: "Button" }} />
-<Story name="Secondary" args={{ color: "secondary", label: "Button" }} />
-<Story name="Small" args={{ size: "small", label: "Button" }} />
-<Story name="Medium" args={{ size: "medium", label: "Button" }} />
-<Story name="Large" args={{ size: "large", label: "Button" }} />
+<script lang="ts">
+    setTemplate(template);
+</script>
+
+{#snippet template(args: Args<typeof Story>, context: StoryContext<typeof Story>)}
+    <Button {...args}>Button</Button>
+{/snippet}
+
+<Story name="Primary" />
+<Story name="Secondary" args={{ color: "secondary" }} />
+<Story name="Small" args={{ size: "sm" }} />
+<Story name="Medium" args={{ size: "md" }} />
+<Story name="Large" args={{ size: "lg" }} />
