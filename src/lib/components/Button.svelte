@@ -34,19 +34,19 @@
             size: {
                 sm: {
                     base: "rounded-sm px-2 py-1",
-                    icon: "text-xs",
+                    icon: "text-sm",
                     lbl: "text-xs",
                     spinner: ""
                 },
                 md: {
                     base: "rounded-md px-4 py-2",
-                    icon: "text-sm",
+                    icon: "text-base",
                     lbl: "text-sm",
                     spinner: ""
                 },
                 lg: {
                     base: "rounded-md px-6 py-3",
-                    icon: "text-sm",
+                    icon: "text-xl",
                     lbl: "text-sm",
                     spinner: ""
                 }
