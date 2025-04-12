@@ -78,8 +78,8 @@
         label = "",
         type = "button",
         iconName = "",
-        progress = 0,
-        loading = false,
+        progress = $bindable(0),
+        loading = $bindable(false),
         color = "primary",
         size = "md",
 
