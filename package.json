@@ -72,5 +72,8 @@
     },
     "keywords": [
         "svelte"
-    ]
+    ],
+    "dependencies": {
+        "spin.js": "^4.1.2"
+    }
 }
