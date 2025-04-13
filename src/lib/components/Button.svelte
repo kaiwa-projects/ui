@@ -1,13 +1,8 @@
 <script lang="ts" module>
     import type { WithElementRef } from "$lib/utils";
     import { cn } from "$lib/utils";
-    import type { HTMLAnchorAttributes, HTMLButtonAttributes } from "svelte/elements";
+    import type { HTMLButtonAttributes } from "svelte/elements";
     import { type VariantProps, tv } from "tailwind-variants";
-
-    import { onDestroy } from "svelte";
-    import Icon from "@iconify/svelte";
-    import { Spinner } from "spin.js";
-    import { untrack } from "svelte";
 
     const variants = tv({
         slots: {
@@ -62,7 +57,7 @@
     export type ButtonSize = VariantProps<typeof variants>["size"];
     export type ButtonProps = WithElementRef<HTMLButtonAttributes> & {
         disabled?: HTMLButtonAttributes["disabled"];
-        label: string;
+        label?: string;
         type?: HTMLButtonAttributes["type"];
         iconName?: string;
         progress?: number;
@@ -73,6 +68,11 @@
 </script>
 
 <script lang="ts">
+    import { onDestroy } from "svelte";
+    import Icon from "@iconify/svelte";
+    import { Spinner } from "spin.js";
+    import { untrack } from "svelte";
+
     let {
         disabled = false,
         label = "",
