@@ -97,7 +97,7 @@
     const { base, icon, prefix, suffix } = $derived(
         variants({
             iconPosition: iconName !== "" ? iconPosition : "none",
-            error: error !== "",
+            error: error !== "" || (errors && errors.length > 0),
             prefix: prefixLabel !== "",
             suffix: suffixLabel !== ""
         })
