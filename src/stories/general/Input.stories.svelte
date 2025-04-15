@@ -19,6 +19,7 @@
                     "iconName",
                     "iconPosition",
                     "error",
+                    "errors",
                     "prefixLabel",
                     "suffixLabel"
                 ]
@@ -49,6 +50,10 @@
             error: {
                 control: "text",
                 defaultValue: ""
+            },
+            errors: {
+                control: "object",
+                defaultValue: []
             },
             prefixLabel: {
                 control: "text",

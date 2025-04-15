@@ -63,6 +63,7 @@
             label?: string;
             hint?: string;
             error?: string;
+            errors?: string[];
             iconName?: string;
             iconPosition?: "leading" | "trailing";
             prefixLabel?: string;
@@ -80,6 +81,7 @@
         label = "",
         hint = "",
         error = "",
+        errors = [],
         iconName = "",
         iconPosition = "leading",
         prefixLabel = "",
@@ -124,9 +126,9 @@
             </div>
         {/if}
     </div>
-    {#if error !== ""}
+    {#if error !== "" || (errors && errors.length > 0)}
         <p class="mt-2 text-xs text-red-600">
-            {error}
+            {error || errors[0]}
         </p>
     {/if}
 </div>
