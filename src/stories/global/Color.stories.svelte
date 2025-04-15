@@ -1,10 +1,6 @@
 <script module>
-    import {
-        defineMeta,
-        setTemplate,
-        type Args,
-        type StoryContext
-    } from "@storybook/addon-svelte-csf";
+    import { defineMeta, setTemplate } from "@storybook/addon-svelte-csf";
+    import type { Args, StoryContext } from "@storybook/addon-svelte-csf";
 
     import ColorPalette from "$lib/components/ColorPalette.svelte";
 

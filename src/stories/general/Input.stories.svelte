@@ -1,10 +1,6 @@
 <script module>
-    import {
-        defineMeta,
-        setTemplate,
-        type Args,
-        type StoryContext
-    } from "@storybook/addon-svelte-csf";
+    import { defineMeta, setTemplate } from "@storybook/addon-svelte-csf";
+    import type { Args, StoryContext } from "@storybook/addon-svelte-csf";
 
     import Input from "$lib/components/Input.svelte";
     import { fn } from "@storybook/test";
@@ -16,7 +12,16 @@
         tags: ["autodocs"],
         parameters: {
             controls: {
-                include: ["label", "value", "placeholder"]
+                include: [
+                    "label",
+                    "value",
+                    "placeholder",
+                    "iconName",
+                    "iconPosition",
+                    "error",
+                    "prefixLabel",
+                    "suffixLabel"
+                ]
             }
         },
         argTypes: {
@@ -31,6 +36,27 @@
             placeholder: {
                 control: "text",
                 defaultValue: "Input field"
+            },
+            iconName: {
+                control: "text",
+                defaultValue: ""
+            },
+            iconPosition: {
+                control: { type: "radio" },
+                options: ["leading", "trailing"],
+                defaultValue: "leading"
+            },
+            error: {
+                control: "text",
+                defaultValue: ""
+            },
+            prefixLabel: {
+                control: "text",
+                defaultValue: ""
+            },
+            suffixLabel: {
+                control: "text",
+                defaultValue: ""
             }
         },
         args: {

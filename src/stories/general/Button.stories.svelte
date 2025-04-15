@@ -1,10 +1,6 @@
 <script module>
-    import {
-        defineMeta,
-        setTemplate,
-        type Args,
-        type StoryContext
-    } from "@storybook/addon-svelte-csf";
+    import { defineMeta, setTemplate } from "@storybook/addon-svelte-csf";
+    import type { Args, StoryContext } from "@storybook/addon-svelte-csf";
 
     import Button from "$lib/components/Button.svelte";
     import { fn } from "@storybook/test";
