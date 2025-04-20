@@ -7,7 +7,7 @@
     const variants = tv({
         slots: {
             base: "col-start-1 row-start-1 appearance-none rounded border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 forced-colors:appearance-auto",
-            label: "block font-medium text-sm leading-[22px]"
+            label: "block font-medium text-sm/6"
         },
         variants: {
             color: {
